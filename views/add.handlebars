@@ -1,0 +1,91 @@
+<div id = "data">
+    <form id = "person">    
+        <br><br>
+        Name of Product: <input id = "name" name = "name" type = "text">
+        <br><br>
+        Product ID: <input type="text" name="id" id="id">
+
+        <br><br>
+        Price:<input id = "price" name = "price" type = "text">
+        <br><br>
+        Description: <input id = "desc" name = "desc" type="text">
+                <br><br>
+        //Upload Image: <input id = "img" name = "img" type="file">
+        <input type="url" name="url" id="url"
+               placeholder="https://example.com"
+               pattern="https://.*" size="20" required />
+        <br><br>
+        <input id = "button" type = "button" value = " Add " onclick = "AddData()">
+    </form>
+</div>
+
+<h3>List Of Products</h3>
+<div id = "tab">
+        <table id = "list" cellspacing = "0px" cellpadding = "20px" text-align = "center" class="table table-striped">
+            <thead>
+                <tr id="101">
+                    <td>ProductName</td>
+                    <td>Product ID</td>
+                    <td>Price</td>
+                    <td>Description</td>
+                    <td>Image</td>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <tr >
+                    <td>Samsung Mobile</td>
+                    <td>J7</td>
+                    <td>15000</td>
+                    <td>Android Phone</td>
+                    <td><img src="samsung.jpg" alt="" border=3 height=50 width=50></img></td>
+                </tr>
+                <tr>
+                    <td>Iphone</td>
+                    <td>X</td>
+                    <td>80000</td>
+                    <td>Ios</td>
+                    <td><img src="iphone.jpg" alt="" border=3 height=50 width=50></img></td>
+                </tr>
+                <tr>
+                    <td>Sony LED</td>
+                    <td>LED42</td>
+                    <td>40000</td>
+                    <td>FullHd </td>
+                    <td><img src="Sony.jpg" alt="" border=3 height=50 width=50></img></td>
+                </tr>
+                <tr>
+                    <td>OnePlus</td>
+                    <td>6 </td>
+                    <td>30000</td>
+                    <td>Android</td>
+                    <td><img src="oneplus.jpg" alt="" border=3 height=50 width=50></img></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+<script>
+    function AddData(){
+        {
+            var rows = "";
+            var name = document.getElementById("name").value;
+            var id = document.getElementById("id").value;
+            var price = document.getElementById("price").value;
+            var desc = document.getElementById("desc").value;
+             var url = document.getElementById("url").src; 
+
+
+            rows += "<tr><td>" + name + "</td><td>" + id + "</td><td>" + price + "</td><td>" + desc + "</td></tr>" + url + "</td></tr>" ;
+             var tbody = document.querySelector("#list tbody");
+        var tr = document.createElement("tr");
+
+        tr.innerHTML = rows;
+        tbody.appendChild(tr)
+       
+         var target = document.getElementById(101);
+        target.parentNode.insertBefore(tr, target.nextSibling);
+        }   
+    }
+    </script>
